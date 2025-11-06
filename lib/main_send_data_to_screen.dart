@@ -32,6 +32,8 @@ class TodosScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Todos'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
       ),
       body: ListView.builder(
         itemCount: todos.length,
@@ -48,6 +50,24 @@ class TodosScreen extends StatelessWidget {
             },
           );
         },
+      ),
+    );
+  }
+}
+
+class DetailScreen extends StatelessWidget {
+  const DetailScreen({Key? key, required this.todo}): super(key: key);
+
+  final ToDo todo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(todo.title),
+      ),
+      body: Center(
+        child: Text(todo.description),
       ),
     );
   }
